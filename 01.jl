@@ -1,8 +1,8 @@
-function findnlargest(lines, n)
+open(ARGS[1]) do file
     curr = 0
-    largest = zeros(Int, n)
+    largest = zeros(Int, 3)
 
-    for line in lines
+    for line in readlines(file)
         if isempty(line)
             (min, idx) = findmin(largest)
             if curr > min
@@ -14,13 +14,6 @@ function findnlargest(lines, n)
             curr += parse(Int, line)
         end
     end
-
-    return largest
-end
-
-open(ARGS[1]) do file
-    lines = readlines(file)
-    largest = findnlargest(lines, 3)
 
     println("Part one : ", maximum(largest))
     println("Part two : ", sum(largest))
