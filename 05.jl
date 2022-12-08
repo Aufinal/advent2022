@@ -13,7 +13,7 @@ open(ARGS[1]) do file
     end
     stacks2 = deepcopy(stacks)
 
-    moves = map(line -> filter(!isnothing, tryparse.(Int, split(line))), readlines(file))
+    moves = map(line -> filter(!isnothing, tryparse.(Int, split(line))), eachline(file))
     foreach(move -> move!.(move..., [stacks, stacks2], [true, false]), moves)
     println(join(last.(stacks)))
     println(join(last.(stacks2)))

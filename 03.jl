@@ -6,7 +6,7 @@ open(ARGS[1]) do file
     score1 = 0
     score2 = 0
 
-    for lines in Iterators.partition(readlines(file), 3)
+    for lines in Iterators.partition(eachline(file), 3)
         score1 += sum(lines) do line
             h = length(line) ÷ 2
             sum(priority, intersect(line[begin:h], line[h+1:end]))

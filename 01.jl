@@ -2,7 +2,7 @@ open(ARGS[1]) do file
     curr = 0
     largest = zeros(Int, 3)
 
-    for line in readlines(file)
+    for line in eachline(file)
         if isempty(line)
             (min, idx) = findmin(largest)
             if curr > min

@@ -1,7 +1,7 @@
 open(ARGS[1]) do file
     score1 = 0
     score2 = 0
-    for line in readlines(file)
+    for line in eachline(file)
         opp = line[1] - 'A' + 1
         me = line[3] - 'X' + 1
 

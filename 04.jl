@@ -7,7 +7,7 @@ function overlaps((a, b, c, d))
 end
 
 open(ARGS[1]) do file
-    scores = sum(readlines(file)) do line
+    scores = sum(eachline(file)) do line
         shifts = parse.(Int, split(line, ['-', ',']))
         [contains(shifts), overlaps(shifts)]
     end
